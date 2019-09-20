@@ -22,8 +22,6 @@ RUN set -ex \
     && mkdir -p /etc/ansible \
     && echo 'localhost' > /etc/ansible/hosts
 
-COPY ./provisioner /ansible/playbooks
-
 ENV ANSIBLE_GATHERING smart
 ENV ANSIBLE_HOST_KEY_CHECKING false
 ENV ANSIBLE_RETRY_FILES_ENABLED false
