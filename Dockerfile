@@ -1,9 +1,9 @@
-FROM alpine:3.10.2
+FROM python:alpine
 
 LABEL maintainer="Kevin Reynolds <k.reynolds@f5.com>"
 
 RUN set -ex \
-    && apk --update add rpm openssh-client python3 py-pip openssl ca-certificates wget \
+    && apk --update add rpm openssh-client openssl ca-certificates wget \
     && apk --update add --virtual build-dependencies python3-dev libffi-dev openssl-dev build-base \
     && pip3 install --upgrade pip pycrypto cffi \
     && pip3 install ansible==2.8.1 \
@@ -16,6 +16,7 @@ RUN set -ex \
     && pip3 install boto \
     && pip3 install boto3 \
     && pip3 install passlib \
+    && pip3 install paramiko \
     && apk del build-dependencies \
     && rm -rf /var/cache/apk/* \
     && mkdir -p /etc/ansible \
