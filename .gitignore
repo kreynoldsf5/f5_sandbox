@@ -1,1 +1,2 @@
 *.pem
+provisioner/roles/f5_setup/files/*.rpm
